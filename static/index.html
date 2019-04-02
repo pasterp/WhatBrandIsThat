@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>My Todo Application</title>
+    <style type="text/css">
+<!--
+body {
+	background-color:Gainsboro;
+	color:DarkBlue;
+	font-family:arial;
+}
+h1 {background-color:Darkblue;
+	color:White;}
+
+input {
+     color:DarkBlue;
+     background-color:AliceBlue;
+     font-size:12px;
+     font-family:arial;
+}
+select {
+     color:DarkBlue ;
+     background-color:AliceBlue;
+     font-size:12px;
+     font-family:arial;
+}
+-->
+    </style>
+    <script type="text/javascript">
+      var req;
+      var todosArray = [];
+
+      function getTodosRequest() {
+      	//req = new XMLHttpRequest();
+          //req.onreadystatechange = getTodosRequestHandler;
+      	//req.open("GET","/todos/", true); // mode asynchrone
+      	//req.send();
+      }
+
+      function getTodosRequestHandler() {
+      	if (req.readyState == 4 && req.statusText == "OK") {
+      		 // var table = document.getElementById("todoTable");
+      		 var res = req.responseText;
+      		 var todos = JSON.parse(res)
+      		 var l = todos.length;
+
+      		 eraseTodosList();
+      		 for (var i = 0; i < l; i++) {
+      			 var item = todos[i];
+      			 var desc = item.description;
+      			 var id =  item.id;
+      			 var deadline = item.deadline;
+      			 var done = item.done;
+      			 var date = deadline.split("-");
+      			 var day = parseInt(date[2]), month = parseInt(date[1]), year = parseInt(date[0]);
+      			 var toto = new Todo(id, desc, new Date(year, month, day, 0, 0, 0), done)
+      			 addTodoInList(toto);
+      		 }
+      	}
+      }
+
+      function Todo(id, desc, deadline, done) {
+      	this.id = id;
+      	this.description = desc;
+      	this.done = done;
+      	this.deadline = deadline;
+      }
+
+      Todo.prototype.toString = function() {
+      	return "[" + this.id + " - " +  this.description + ":" + this.formatedDate() + "]";
+      }
+      Todo.prototype.asJSON = function() {
+      	var res =  JSON.stringify(this)
+      	return res;
+      }
+
+      function selectTodoInList() {
+      	var todosList = document.getElementById('todoList');
+      	var index1 = todosList.selectedIndex;
+      	var option = todosList.options[index1];
+      	var index2 = option.value
+      	var toto = todosArray[index2]
+      	fillInput(toto);
+      }
+
+      Todo.prototype.formatedDate = function() {
+      	return this.deadline.getDate() + "." + this.deadline.getMonth() + "." + this.deadline.getFullYear();
+      }
+
+      function eraseTodosList() {
+      	var todosOptions = document.getElementById('todoList').options;
+      	todosArray = []
+      	var l = todosOptions.length;
+      	for (var i=1; i <= l; i++) {
+      		todosOptions.remove(0);
+      	}
+      }
+
+      function fillInput(toto) {
+      	var date = toto.deadline
+      	document.getElementById('ident').value = toto.id;
+      	document.getElementById('desc').value = toto.desc;
+      	document.getElementById('day').value = date.getDate();
+      	document.getElementById('month').value = date.getMonth()+1;
+      	document.getElementById('year').value = date.getFullYear();
+      	document.getElementById('done').selected = toto.done
+      }
+
+      function addTodoInList(toto) {
+      	var todosList = document.getElementById('todoList');
+      	var option=document.createElement('option');
+      	todosList.add(option, null);
+      	var i = todosArray.length + 1;
+      	todosArray[i] = toto
+      	option.text= toto.toString()
+      	option.value= i
+      }
+
+
+      function addTodoRequest(toto) {
+      	req = new XMLHttpRequest();
+          req.onreadystatechange = addTodoRequestHandler;
+      	req.open("POST","/todos/", true); // mode asynchrone
+      	req.setRequestHeader("content-type", "application/json");
+      	req.send(toto.asJSON());
+      }
+
+      function addTodoRequestHandler() {
+      	if (req.readyState == 4) {
+      		if (req.status == 201) {
+      			getTodosRequest();
+      		} else {
+      			alert("Error:" + req.statusText)
+      		}
+      	}
+      }
+
+      function addTodo() {
+      	var ident = document.getElementById('ident').value;
+      	var desc = document.getElementById('desc').value;
+      	var day = parseInt(document.getElementById('day').value);
+      	var month =  parseInt(document.getElementById('month').value);
+      	var year =  parseInt(document.getElementById('year').value);
+      	var toto = new Todo(ident, desc, new Date(year, month-1, day, 0, 0, 0, 0), false)
+      	addTodoRequest(toto)
+      }
+
+      function deleteTodoRequest(toto) {
+      	req = new XMLHttpRequest();
+          req.onreadystatechange = deleteTodoRequestHandler;
+          var uri = "/totos/" + "/" + toto.id;
+      	req.open("DELETE", uri, true); // mode asynchrone
+      	req.send();
+
+      }
+
+      function deleteTodoRequestHandler() {
+      	if (req.readyState == 4) {
+      		if (req.status == "204") {
+      			 getTodosRequest();
+      		} else {
+      			alert("Error:" + req.statusText)
+      		}
+      	}
+      }
+
+      function deleteSelectedTodo() {
+      	var todosList = document.getElementById('todoList')
+      	var index1 = todosList.selectedIndex;
+      	var option = todosList.options[index1];
+      	var index2 = option.value
+      	var toto = todosArray[index2]
+      	deleteTodoRequest(toto)
+      }
+
+      function goPython()
+      {
+          dfsfds
+
+
+      }
+
+    </script>
+  </head>
+  <body>
+
+    <H1>Image lookup</H1>
+
+    <br/>
+
+    <form action="/tu.py" method="post">
+      String 64:<br>
+      <input type="text" name="base64" ><br>
+      <input type="Submit" value="Envoyer" onClick=""/>
+    </form>
+
+
+    <script type="text/javascript">getTodosRequest()</script>
+
+  </body>
+</html>
