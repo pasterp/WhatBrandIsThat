@@ -1,3 +1,6 @@
 .vscode
 *.idea
 *__pycache__
+
+/app/platforms
+/app/node_modules

@@ -1,0 +1,101 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+
+    outline:none; /* no outline when pressing button */
+}
+h1 {
+    margin-top:0;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: transparent;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0;
+    padding:0;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    text-transform:uppercase;
+    width:100%;
+}
+button{
+    background: rgba(130, 204, 221,1.0);
+    padding: 10%;
+    border: 0;
+    width: 8em;
+
+    transition: background 0.2s linear;
+}
+button:active {
+    background: rgba(120, 224, 143,1.0);
+}
+
+.app {
+    background: rgba(60, 99, 130,.3);
+    height: 100%;
+    width: 100%;
+    overflow-y:hidden;
+}
+
+#back-panel {
+    background: rgba(60, 99, 130,.3);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#front-panel {
+    background: #82ccdd;
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-top: -10%;
+}
+
+#top-bar {
+    background: #60a3bc;
+    height: 3em;
+    size: 2em;
+}
+#app-name{
+    float: left;
+    padding: 1em;
+    size: 2em;
+}
+#app-name:before{
+    content: '';
+    background: url('/img/icon_logo.png') 0 -.25em;
+    background-size: 2em 2em;
+    float: left;
+    display: block;
+    height: 2.5em;
+    width: 2.5em;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+#params{
+    float: right;
+    padding: 1em;
+    height: 1em;
+}
+#button-group {
+    position: absolute;
+    top: 70%;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+
+    width: 18.5em;
+}
+#button-group button:first-child  {
+    border-radius: 25% 0 0 25%;
+}
+#button-group button:last-child  {
+    border-radius: 0 25% 25% 0;
+}

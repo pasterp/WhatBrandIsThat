@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+                                                            style-src 'self' 'unsafe-inline'; 
+                                                            media-src *; 
+                                                            img-src 'self' data: content:;
+                                                            connect-src 'self' *;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+        <link href="css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="back-panel">
+                <div id="top-bar">
+                    <div id="app-name">Which Brand is That ?</div>
+                    <div id="params"><i class="fas fa-cog"></i></div>
+                </div>
+                    
+                <div id="deviceready">
+                    <img src="img/icon_logo.png" style="margin: 40%;width: 20%;max-height: 20%;" class="event listening" />
+                    <div id="button-group">
+                        <button id="bTakePicture"><i class="fas fa-camera fa-3x"></i></button>
+                        <button id="bFromGallery"><i class="fas fa-images fa-3x"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="front-panel">
+                <h1>Hey</h1>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type='application/javascript' src='js/fastclick.js'></script>
+        <script type="text/javascript" src="CameraPreview.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
