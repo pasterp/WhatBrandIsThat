@@ -29,11 +29,14 @@ def return_img_list(img_path,id_cree):
 
     des_list.append((image_path, des))
 
+    #TODO: test if descriptors == None before !!
+
     # Stack all the descriptors vertically in a numpy array
     descriptors = des_list[0][1]
 
     #
     test_features = np.zeros((1, numWords), "float64")
+    print(descriptors)
     words, distance = vq(descriptors, voc)
     for w in words:
         test_features[0][w] += 1

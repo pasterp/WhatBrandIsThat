@@ -15,10 +15,10 @@ kiwisolver==1.0.1
 matplotlib==3.0.2
 networkx==2.2
 numpy==1.15.4
-opencv-contrib-python==3.4.2.16
-opencv-python==3.4.2.16
+opencv-contrib-python==3.4.2.17
+opencv-python==3.4.2.17
 Pillow==5.4.1
-pip=10.0.1
+pip==10.0.1
 pylablib==0.3.0
 pyparsing==2.3.0
 python-dateutil==2.7.5

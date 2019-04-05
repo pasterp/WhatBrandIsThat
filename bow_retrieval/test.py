@@ -1,6 +1,6 @@
 import base64
 import io
-from PIL import ImageTk, Image
+from PIL import Image, ImageTk
 try:
     # Python2
     import Tkinter as tk
