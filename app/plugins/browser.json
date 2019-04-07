@@ -12,6 +12,15 @@
     },
     "cordova-plugin-camera-preview": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "me.phelipot.WhatBrand"
+    },
+    "me.phelipot.android.cordova.galleryapi": {
+      "PACKAGE_NAME": "me.phelipot.WhatBrand"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "me.phelipot.WhatBrand"
     }
   },
   "dependent_plugins": {}

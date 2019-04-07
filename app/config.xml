@@ -30,4 +30,7 @@
     <plugin name="cordova-plugin-camera-preview" spec="git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git">
         <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="26+" />
     </plugin>
+    <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
+    <plugin name="me.phelipot.android.cordova.galleryapi" spec="git+https://github.com/pasterp/cordova-gallery-api.git" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.7.2" />
 </widget>

@@ -1,0 +1,54 @@
+{
+  "_from": "git+https://github.com/pasterp/cordova-gallery-api.git",
+  "_id": "me.phelipot.android.cordova.galleryapi@0.2.1",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/me.phelipot.android.cordova.galleryapi",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/pasterp/cordova-gallery-api.git",
+    "rawSpec": "https://github.com/pasterp/cordova-gallery-api.git",
+    "saveSpec": "git+https://github.com/pasterp/cordova-gallery-api.git",
+    "fetchSpec": "https://github.com/pasterp/cordova-gallery-api.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/pasterp/cordova-gallery-api.git#155d67a9c95734216dafbf82f92bb98a5ad1a47b",
+  "_spec": "https://github.com/pasterp/cordova-gallery-api.git",
+  "_where": "/home/pascal/Projects/WhatBrandIsThat/app",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/pasterp/cordova-gallery-api/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "me.phelipot.android.cordova.galleryapi",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova gallery API plugin",
+  "homepage": "https://github.com/pasterp/cordova-gallery-api#readme",
+  "keywords": [
+    "cordova",
+    "gallery",
+    "media",
+    "api",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "me.phelipot.android.cordova.galleryapi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pasterp/cordova-gallery-api.git"
+  },
+  "version": "0.2.1"
+}
