@@ -25,6 +25,12 @@
     },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "me.phelipot.WhatBrand"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "me.phelipot.WhatBrand"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "me.phelipot.WhatBrand"
     }
   },
   "dependent_plugins": {}

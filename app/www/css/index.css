@@ -240,3 +240,61 @@ body {
     animation: spin 2s linear infinite;
     margin: auto;
 }
+
+.response {
+    width: 95%;
+    margin: auto;
+}
+
+.date {
+    background: rgba(129, 236, 236,1.0);
+    border-radius: 5em;
+    text-align: center;
+}
+.result {
+    margin-top: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    border-radius: 1em;
+    min-height: 6em;
+}
+.result>img {
+    width: 5em;
+    height: 5em;
+    border-radius: 1em;
+    float: left;
+    margin-right: 1em;
+}
+.result .score {
+    position: relative;
+    float: right;
+    right: 0;
+    top: -1.75em;
+    font-size: 2em;
+    background: #2d3436;
+    color: #dfe6e9;
+    padding: .25em;
+    border-radius: .25em;
+}
+.result .brand {
+    font-size: 2em;
+}
+
+.error {
+    background: rgba(255, 118, 117,1.0);
+    border-radius: 1em;
+    margin: auto;
+    width: 95%;
+    padding: 1em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-top: 1em;
+    text-size: 2em; 
+}

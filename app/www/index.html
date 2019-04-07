@@ -23,6 +23,12 @@
             <label for="params_url">URL API:<br/>
                 <input type="url" id="params_url" />
             </label>
+            <br>
+            <label for="params_threshold">Seuil des résultats affichés:<br/>
+                <input type="number" id="params_threshold" min="0.01" max="0.99" step="0.01" />
+            </label>
+
+            <button onclick="app.preferences.history = [];">Vider l'historique</button>
 
             <div style="position:absolute;bottom: 2em; height: 5em;display: flex;justify-content: space-around;width: 80%;margin: auto;">
                 <button style="background:rgba(85, 239, 196,1.0);" onclick="app.saveParameters()">Sauvegarder</button>
