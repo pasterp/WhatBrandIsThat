@@ -67,8 +67,10 @@ def return_img_list(img_path,id_cree):
 
     conn = sqlite3.connect("db.sqlite3")                                                                                # nous nous connections a la BdD
     cursor = conn.cursor()
-    for i in range(0,len(list_to_write_indb)):                                                                          # nous stockons tous les resultats lies a la recherche du client
-        cursor.execute('INSERT INTO url_responses(request_id,image_url,score) VALUES (?,?,?)', (id_cree,data[images_triees[i]],str(scores_tries[i])[:5],))
+    for i in range(0,len(list_to_write_indb)):      
+        marque = data[images_triees[i]]                                                                    # nous stockons tous les resultats lies a la recherche du client
+        cursor.execute('INSERT INTO url_responses(request_id,image_url,score,marque) VALUES (?,?,?,?)', 
+        (id_cree, '/logo/' + marque + '.png', str(scores_tries[i])[:5], marque))
     conn.commit()
     conn.close()
     os.remove(image_path)                                                                                               # nous supprimons l image pour economiser de la place

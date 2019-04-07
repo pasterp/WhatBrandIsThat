@@ -27,6 +27,7 @@ def jsonize(request_id):
         url_element={}                                                                                                  # un url_element correspond a une url avec son score dans le dictionnaire
         url_element['image_url']=user_corresponding_result[i][2]
         url_element['score']=user_corresponding_result[i][3]
+        url_element['marque']=user_corresponding_result[i][4]
         urls_list.append(url_element)
 
     data['results']=urls_list                                                                                           # nous le stockons la liste

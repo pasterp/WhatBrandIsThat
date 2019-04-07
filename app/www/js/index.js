@@ -139,7 +139,7 @@ var app = {
                 
                 template.innerHTML = '<div class="response"><div class="date">' + response.date + '</div>';
                 for(result of response.results){
-                    template.innerHTML += '<div class="result"><img src="' + result.image_url + '" /><p class="brand">-.-</p><div class="score">' + result.score + '</div></div>'; 
+                    template.innerHTML += '<div class="result"><img src="' + app.preferences.api_url + '/static' + result.image_url + '" /><p class="brand">' + result.marque + '</p><div class="score">' + result.score + '</div></div>'; 
                 }
                 
             } else if (this.readyState === XMLHttpRequest.DONE) {
