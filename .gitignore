@@ -4,3 +4,4 @@
 
 /app/platforms
 /app/node_modules
+*.gradle

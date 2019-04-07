@@ -5,8 +5,9 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
                                                             style-src 'self' 'unsafe-inline'; 
                                                             media-src *; 
-                                                            img-src 'self' data: content:;
-                                                            connect-src 'self' *;">
+                                                            img-src 'self' data: content: *;
+                                                            connect-src 'self' *;
+                                                            script-src 'self' 'unsafe-inline'">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -16,27 +17,54 @@
         <title>Hello World</title>
     </head>
     <body>
+        <div id="gray-overlay" class="loader hidden"></div>
+        <div id="loader" class="loader hidden"></div>
+        <div id="parameters" class="hidden">
+            <label for="params_url">URL API:<br/>
+                <input type="url" id="params_url" />
+            </label>
+
+            <div style="position:absolute;bottom: 2em; height: 5em;display: flex;justify-content: space-around;width: 80%;margin: auto;">
+                <button style="background:rgba(85, 239, 196,1.0);" onclick="app.saveParameters()">Sauvegarder</button>
+                <button style="background: rgba(178, 190, 195,1.0);" onclick="app.closeParameters()">Annuler</button>
+            </div>            
+        </div>
         <div class="app">
             <div id="back-panel">
                 <div id="top-bar">
                     <div id="app-name">Which Brand is That ?</div>
-                    <div id="params"><i class="fas fa-cog"></i></div>
+                    <div id="params" onclick="app.openParameters()"><i class="fas fa-cog"></i></div>
                 </div>
                     
-                <div id="deviceready">
-                    <img src="img/icon_logo.png" style="margin: 40%;width: 20%;max-height: 20%;" class="event listening" />
+                <div id="background">
+                    <img src="img/icon_logo.png" style="margin: 40%;width: 20%;max-height: 20%;"/>
                     <div id="button-group">
-                        <button id="bTakePicture"><i class="fas fa-camera fa-3x"></i></button>
-                        <button id="bFromGallery"><i class="fas fa-images fa-3x"></i></button>
+                        <button id="bTakePicture" class="bigButton"><i class="fas fa-camera fa-3x"></i></button>
+                        <button id="bFromGallery" class="bigButton"><i class="fas fa-images fa-3x"></i></button>
                     </div>
                 </div>
             </div>
             <div id="front-panel">
-                <h1>Hey</h1>
+                <div id='front-panel-header'><i class="fas fa-angle-up fa-2x" style="text-align:center;width:100%;"></i></div>
+                <div id="tabs">
+                    <div>Historique</div>
+                    <div class="active">Gallerie</div>
+                    <div class="inactive">Résultats</div>
+                </div>
+
+                <div id="tab-content">
+                        <h3>Chargement...<h3>
+                </div>
+                
+                <!-- TEMPLATES -->
+                <script type="text/html" id='gallery-template'></script>
+                <script type="text/html" id='history-template'></script>
+                <script type="text/html" id='results-template'></script>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type='application/javascript' src='js/fastclick.js'></script>
+        <script type='application/javascript' src='js/hammer.min.js'></script>
         <script type="text/javascript" src="CameraPreview.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
