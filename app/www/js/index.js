@@ -14,8 +14,6 @@ var app = {
     initialize: function () {
         document.addEventListener('deviceready', this.init.bind(this), false);
     },
-
-
     init: function () {
 
         //Permissions:
@@ -147,10 +145,9 @@ var app = {
                 template.innerHTML = '<div class="response"><div class="date">Recherche du ' + date.slice(0, date.length-10) + '</div>';
                 for(result of response.results){
                     if(result.score > app.preferences.threshold){
-                        template.innerHTML += '<div class="result"><img src="' + app.preferences.api_url + '/static' + result.image_url + '" /><p class="brand">' + result.marque + '</p><div class="score">' + result.score + '</div></div>'; 
+                        template.innerHTML += '<div class="result"><img src="' + app.preferences.api_url + '/static' + result.image_url + '" /><p class="brand">' + result.marque + '</p><div class="score">' + result.score + '</div><i class="fas fa-arrow-up fa-2x u" onclick="this.classList.toggle(\'clicked\')"></i><i class="fas fa-arrow-down fa-2x d" onclick="this.classList.toggle(\'clicked\')"></i></div>'; 
                     }
                 }
-                
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 console.error("Can't get the search results!");
                 template.innerHTML = '<div class="error">Impossible de récupérer les résultats de votre recherche</div>';
@@ -186,7 +183,7 @@ var app = {
                 template.innerHTML += '<img src="data:image/png;base64,' + image.thumbnail +'" data-url="' + image.uri + '" onclick="app.galleryOpenImage(this)" />';
             }
             //TODO: choose image from native gallery
-            template.innerHTML += '<div onclick="app.galleryChooseImage()"><i class="fas fa-images fa-10x"></div>';
+            template.innerHTML += '<div onclick="app.galleryChooseImage()"><i class="fas fa-images fa-10x"></i></div>';
             
             template.innerHTML += '</div>';
             app.reloadTabContent();

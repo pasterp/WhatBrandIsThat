@@ -298,3 +298,19 @@ li {
     margin-top: 1em;
     text-size: 2em; 
 }
+
+.u {
+    color: #00b894;
+}
+
+.u.clicked {
+    color: #55efc4;    
+}
+
+.d {
+    color:#ff7675;
+}
+
+.d.clicked {
+    color: #d63031;
+}

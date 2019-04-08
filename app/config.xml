@@ -24,6 +24,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <preference name="Orientation" value="portrait" />
+    <icon src="www/img/icon_logo.png" />
     <engine name="browser" spec="^6.0.0" />
     <engine name="android" spec="^8.0.0" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
